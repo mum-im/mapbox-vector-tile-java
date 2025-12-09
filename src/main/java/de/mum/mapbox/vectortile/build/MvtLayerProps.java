@@ -2,10 +2,8 @@ package de.mum.mapbox.vectortile.build;
 
 import java.util.LinkedHashMap;
 import java.util.Objects;
-
 import org.eclipse.jdt.annotation.DefaultLocation;
 import org.eclipse.jdt.annotation.NonNullByDefault;
-
 import de.mum.mapbox.vectortile.util.MvtUtil;
 
 /**
@@ -14,24 +12,31 @@ import de.mum.mapbox.vectortile.util.MvtUtil;
 @NonNullByDefault({ DefaultLocation.PARAMETER, DefaultLocation.RETURN_TYPE })
 public class MvtLayerProps
 {
+	/**
+	 * Hashmap for the keys.
+	 */
 	private final LinkedHashMap<String, Integer> keys = new LinkedHashMap<String, Integer>();
+	
+	/**
+	 * Hashmap for the values.
+	 */
 	private final LinkedHashMap<Object, Integer> values = new LinkedHashMap<Object, Integer>();
 
 	/**
 	 * Constructs an instance.
 	 */
-	public MvtLayerProps()
-	{
+	public MvtLayerProps() {
 	}
 
 	/**
 	 * Add the key and return it's index code. If the key already is present, the previous index code is returned and no
 	 * insertion is done.
+	 * 
 	 * @param key key to add
 	 * @return index of the key
 	 */
-	public int addKey(String key)
-	{
+	public int addKey(String key) {
+		
 		Objects.requireNonNull(key);
 		int nextIndex = keys.size();
 		final Integer mapIndex = keys.putIfAbsent(key, nextIndex);
@@ -42,15 +47,15 @@ public class MvtLayerProps
 	 * Add the value and return it's index code. If the value already is present, the previous index code is returned
 	 * and no insertion is done. If {@code value} is an unsupported type for encoding in a MVT, then it will not be
 	 * added.
+	 * 
 	 * @param value value to add
 	 * @return index of the value, -1 on unsupported value types
 	 * @see MvtUtil#isValidPropValue(Object)
 	 */
-	public int addValue(Object value)
-	{
+	public int addValue(Object value) {
+		
 		Objects.requireNonNull(value);
-		if (!MvtUtil.isValidPropValue(value))
-		{
+		if (!MvtUtil.isValidPropValue(value)) {
 			return -1;
 		}
 
@@ -61,25 +66,24 @@ public class MvtLayerProps
 
 	/**
 	 * Gets all keys.
+	 * 
 	 * @return keys
 	 */
-	public Iterable<String> getKeys()
-	{
+	public Iterable<String> getKeys() {
 		return keys.keySet();
 	}
 
 	/**
 	 * Gets all values.
+	 * 
 	 * @return values
 	 */
-	public Iterable<Object> getValues()
-	{
+	public Iterable<Object> getValues() {
 		return values.keySet();
 	}
 
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		return "MvtLayerProps [keys=" + keys + ", values=" + values + "]";
 	}
 

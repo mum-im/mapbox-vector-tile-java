@@ -13,6 +13,7 @@ public class MvtLayerParams
 	 * Default resolution of the MVT local coordinate system (4096).
 	 */
 	public static final int DEFAULT_EXTENT = 4096;
+	
 	/**
 	 * Default layer parameters..
 	 * <p>
@@ -23,26 +24,28 @@ public class MvtLayerParams
 	 * </ul>
 	 */
 	public static final MvtLayerParams DEFAULT = new MvtLayerParams(DEFAULT_EXTENT);
+	
 	/**
-	 * the resolution of the MVT local coordinate system.
+	 * The resolution of the MVT local coordinate system.
 	 */
 	private final int extent;
 
 	/**
 	 * Construct layer sizing parameters for MVT creation.
+	 * 
 	 * @param extent the resolution of the MVT local coordinate system, must be &gt; 0
 	 */
-	public MvtLayerParams(int extent)
-	{
-		if (extent <= 0)
-		{
+	public MvtLayerParams(int extent) {
+		if (extent <= 0) {
 			throw new IllegalArgumentException("extent must be > 0");
 		}
+		
 		this.extent = extent;
 	}
 
 	/**
 	 * Gets the resolution of the MVT local coordinate system.
+	 * 
 	 * @return the resolution of the MVT local coordinate system.
 	 */
 	public int getExtent()
@@ -52,28 +55,27 @@ public class MvtLayerParams
 
 	/**
 	 * Gets the ratio of tile 'pixel' dimensions to tile extent dimensions.
+	 * 
 	 * @return ratio of tile 'pixel' dimensions to tile extent dimensions.
 	 */
-	public double getRatio()
-	{
+	public double getRatio() {
 		// tile size is fixed 256 pixels
 		return extent / 256.0;
 	}
 
 	/**
-	 * Gets the resolution of the tile in pixel coordinates
+	 * Gets the resolution of the tile in pixel coordinates.
+	 * 
 	 * @return the resolution of the tile in pixel coordinates
 	 */
 	@SuppressWarnings("static-method")
-	public int getTileSize()
-	{
+	public int getTileSize() {
 		// tile size is fixed 256 pixels
 		return 256;
 	}
 
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		return this.getClass().getSimpleName() + " [tileSize=" + getTileSize() + ", extent=" + getExtent() + ", ratio="
 				+ getRatio() + "]";
 	}
