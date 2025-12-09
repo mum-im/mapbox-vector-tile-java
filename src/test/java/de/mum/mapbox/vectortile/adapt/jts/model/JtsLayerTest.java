@@ -1,0 +1,128 @@
+package de.mum.mapbox.vectortile.adapt.jts.model;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertTrue;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
+
+import org.junit.Test;
+import org.locationtech.jts.geom.Coordinate;
+import org.locationtech.jts.geom.Geometry;
+import org.locationtech.jts.geom.GeometryFactory;
+import org.locationtech.jts.geom.Point;
+
+import de.mum.mapbox.vectortile.adapt.jts.model.JtsLayer;
+
+@SuppressWarnings({ "javadoc", "static-method" })
+public final class JtsLayerTest
+{
+
+	private static final GeometryFactory GEOMETRY_FACTORY = new GeometryFactory();
+
+	private static Point createPoint(int[] coordinates)
+	{
+		return GEOMETRY_FACTORY.createPoint(new Coordinate(coordinates[0], coordinates[1]));
+	}
+
+	@Test
+	public void testAddGeometries()
+	{
+		String layerName = "Points of Interest";
+		List<Geometry> geometries = new ArrayList<>();
+
+		Point point = createPoint(new int[] { 50, 0 });
+		Point point2 = createPoint(new int[] { 51, 1 });
+		Collection<Geometry> points = Arrays.asList(point, point2);
+
+		JtsLayer layer = new JtsLayer(layerName, geometries);
+		layer.getGeometries().addAll(points);
+
+		assertTrue(layer.getGeometries().containsAll(Arrays.asList(point, point2)));
+	}
+
+	@Test
+	public void testAddGeometry()
+	{
+		String layerName = "Points of Interest";
+		List<Geometry> geometries = new ArrayList<>();
+
+		Point point = createPoint(new int[] { 51, 0 });
+
+		JtsLayer layer = new JtsLayer(layerName, geometries);
+		layer.getGeometries().add(point);
+
+		assertTrue(layer.getGeometries().contains(point));
+	}
+
+	@Test
+	public void testEquality()
+	{
+		JtsLayer layer1 = new JtsLayer("apples");
+		JtsLayer layer1Duplicate = new JtsLayer("apples");
+		assertEquals(layer1, layer1Duplicate);
+
+		JtsLayer layer2 = new JtsLayer("oranges");
+		assertNotEquals(layer1, layer2);
+	}
+
+	@Test
+	public void testHash()
+	{
+		JtsLayer layer = new JtsLayer("code");
+		int actual = layer.hashCode();
+		int expected = -1354967378;
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void testLayerCollection()
+	{
+		String layerName = "Points of Interest";
+		List<Geometry> geometries = new ArrayList<>();
+
+		JtsLayer layer = new JtsLayer(layerName, geometries);
+
+		String actualName = layer.getName();
+		String expectedName = layerName;
+		assertEquals(expectedName, actualName);
+
+		Collection<Geometry> actualGeometry = layer.getGeometries();
+		Collection<Geometry> expectedGeometry = geometries;
+		assertEquals(expectedGeometry, actualGeometry);
+	}
+
+	@Test
+	public void testLayerExtent()
+	{
+		String layerName = "Points of Interest";
+		JtsLayer layer = new JtsLayer(layerName, new ArrayList<>(), 2048);
+
+		int actual = 2048;
+		int expected = layer.getExtent();
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void testLayerName()
+	{
+		String layerName = "Points of Interest";
+		JtsLayer layer = new JtsLayer(layerName);
+
+		String actual = layer.getName();
+		String expected = layerName;
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void testToString()
+	{
+		JtsLayer layer1 = new JtsLayer("apples");
+		String actual = layer1.toString();
+		String expected = "Layer{name='apples', geometries=[], extent=4096}";
+		assertEquals(expected, actual);
+	}
+}
