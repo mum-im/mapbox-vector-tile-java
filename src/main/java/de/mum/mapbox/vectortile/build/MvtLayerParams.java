@@ -4,7 +4,7 @@ import org.eclipse.jdt.annotation.DefaultLocation;
 import org.eclipse.jdt.annotation.NonNullByDefault;
 
 /**
- * Immutable parameters collection for Mapbox-Vector-Tile creation.
+ * Immutable parameters collection for Mapbox Vector-Tile creation.
  */
 @NonNullByDefault({ DefaultLocation.PARAMETER, DefaultLocation.RETURN_TYPE })
 public class MvtLayerParams
@@ -15,7 +15,7 @@ public class MvtLayerParams
 	public static final int DEFAULT_EXTENT = 4096;
 	
 	/**
-	 * Default layer parameters..
+	 * Default layer parameters.
 	 * <p>
 	 * Uses defaults:
 	 * </p>
@@ -36,6 +36,7 @@ public class MvtLayerParams
 	 * @param extent the resolution of the MVT local coordinate system, must be &gt; 0
 	 */
 	public MvtLayerParams(int extent) {
+		
 		if (extent <= 0) {
 			throw new IllegalArgumentException("extent must be > 0");
 		}
@@ -48,8 +49,7 @@ public class MvtLayerParams
 	 * 
 	 * @return the resolution of the MVT local coordinate system.
 	 */
-	public int getExtent()
-	{
+	public int getExtent() {
 		return extent;
 	}
 

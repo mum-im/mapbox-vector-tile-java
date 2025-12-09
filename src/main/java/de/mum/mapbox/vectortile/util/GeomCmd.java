@@ -7,8 +7,8 @@ import org.eclipse.jdt.annotation.NonNullByDefault;
  * MVT draw command types.
  */
 @NonNullByDefault
-public enum GeomCmd
-{
+public enum GeomCmd {
+  
 //@formatter:off
     /**
      * Close the path.
@@ -34,8 +34,7 @@ public enum GeomCmd
 	 */
 	private final int paramCount;
 
-	GeomCmd(int cmdId, int paramCount)
-	{
+	GeomCmd(int cmdId, int paramCount) {
 		this.cmdId = cmdId;
 		this.paramCount = paramCount;
 	}
@@ -47,8 +46,8 @@ public enum GeomCmd
 	 * @return command with matching id, or null if there is not a matching command
 	 */
 	@Nullable
-	public static GeomCmd fromId(int cmdId)
-	{
+	public static GeomCmd fromId(int cmdId)	{
+		
 		switch (cmdId) {
 			case 1:
 				return MOVE_TO;

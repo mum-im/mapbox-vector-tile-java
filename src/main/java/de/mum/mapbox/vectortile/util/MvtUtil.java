@@ -14,8 +14,8 @@ import de.mum.mapbox.vectortile.build.MvtLayerProps;
  * @author sbaumhekel
  */
 @NonNullByDefault({ DefaultLocation.PARAMETER, DefaultLocation.RETURN_TYPE })
-public final class MvtUtil
-{
+public final class MvtUtil {
+	
 	/**
 	 * Encoded 'command header' integer for {@link GeomCmd#CLOSE_PATH}.
 	 */
@@ -61,8 +61,8 @@ public final class MvtUtil
 	 * @return true on success, else false
 	 */
 	@SuppressWarnings("unlikely-arg-type")
-	public static <T, U> boolean equalsIterable(@Nullable Iterable<T> la, @Nullable Iterable<U> lb)
-	{
+	public static <T, U> boolean equalsIterable(@Nullable Iterable<T> la, @Nullable Iterable<U> lb)	{
+		
 		// check same instance
 		if (la == lb) {
 			return true;
@@ -154,6 +154,7 @@ public final class MvtUtil
 	 * @return new layer builder instance with initialized metadata.
 	 */
 	public static VectorTile.Tile.Layer.Builder newLayerBuilder(String layerName, MvtLayerParams mvtLayerParams) {
+		
 		VectorTile.Tile.Layer.Builder layerBuilder = VectorTile.Tile.Layer.newBuilder();
 		layerBuilder.setVersion(2);
 		layerBuilder.setName(layerName);
@@ -171,28 +172,22 @@ public final class MvtUtil
 	{
 		final VectorTile.Tile.Value.Builder tileValue = VectorTile.Tile.Value.newBuilder();
 
-		if (value instanceof Boolean v)
-		{
+		if (value instanceof Boolean v)	{
 			tileValue.setBoolValue(v);
 		}
-		else if (value instanceof Integer v)
-		{
+		else if (value instanceof Integer v) {
 			tileValue.setSintValue(v);
 		}
-		else if (value instanceof Long v)
-		{
+		else if (value instanceof Long v) {
 			tileValue.setSintValue(v);
 		}
-		else if (value instanceof Float v)
-		{
+		else if (value instanceof Float v) {
 			tileValue.setFloatValue(v);
 		}
-		else if (value instanceof Double v)
-		{
+		else if (value instanceof Double v)	{
 			tileValue.setDoubleValue(v);
 		}
-		else if (value instanceof String v)
-		{
+		else if (value instanceof String v)	{
 			tileValue.setStringValue(v);
 		}
 		
@@ -208,32 +203,25 @@ public final class MvtUtil
 	@Nullable
 	public static Object toObject(VectorTile.Tile.Value value)
 	{
-		if (value.hasDoubleValue())
-		{
+		if (value.hasDoubleValue()) {
 			return value.getDoubleValue();
 		}
-		else if (value.hasFloatValue())
-		{
+		else if (value.hasFloatValue())	{
 			return value.getFloatValue();
 		}
-		else if (value.hasIntValue())
-		{
+		else if (value.hasIntValue()) {
 			return value.getIntValue();
 		}
-		else if (value.hasBoolValue())
-		{
+		else if (value.hasBoolValue()) {
 			return value.getBoolValue();
 		}
-		else if (value.hasStringValue())
-		{
+		else if (value.hasStringValue()) {
 			return value.getStringValue();
 		}
-		else if (value.hasSintValue())
-		{
+		else if (value.hasSintValue()) {
 			return value.getSintValue();
 		}
-		else if (value.hasUintValue())
-		{
+		else if (value.hasUintValue()) {
 			return value.getUintValue();
 		}
 		
