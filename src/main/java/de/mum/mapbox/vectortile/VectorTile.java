@@ -5535,7 +5535,7 @@ public final class VectorTile {
       ".Value\022\024\n\006extent\030\005 \001(\r:\0044096*\010\010\020\020\200\200\200\200\002\"?" +
       "\n\010GeomType\022\013\n\007UNKNOWN\020\000\022\t\n\005POINT\020\001\022\016\n\nLI" +
       "NESTRING\020\002\022\013\n\007POLYGON\020\003*\005\010\020\020\200@B4\n&io.git" +
-      "hub.sebasbaumh.mapbox.vectortileB\nVector" +
+      "hub.mum-im.mapbox.vectortileB\nVector" +
       "Tile"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor

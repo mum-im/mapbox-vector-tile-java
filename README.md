@@ -1,14 +1,14 @@
 # MapBox Vector Tile - Java
 
-[![CodeQL](https://github.com/sebasbaumh/mapbox-vector-tile-java/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/sebasbaumh/mapbox-vector-tile-java/actions/workflows/codeql-analysis.yml)
-[![Maven Central](https://img.shields.io/maven-central/v/io.github.sebasbaumh/mapbox-vector-tile-java)](https://search.maven.org/artifact/io.github.sebasbaumh/mapbox-vector-tile-java)
-[![javadoc](https://javadoc.io/badge2/io.github.sebasbaumh/mapbox-vector-tile-java/javadoc.svg)](https://javadoc.io/doc/io.github.sebasbaumh/mapbox-vector-tile-java/latest/index.html)
-[![License](https://img.shields.io/github/license/sebasbaumh/mapbox-vector-tile-java.svg)](https://github.com/sebasbaumh/mapbox-vector-tile-java/blob/master/LICENSE)
+[![CodeQL](https://github.com/mum-im/mapbox-vector-tile-java/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/mum-im/mapbox-vector-tile-java/actions/workflows/codeql-analysis.yml)
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.mum-im/mapbox-vector-tile-java)](https://search.maven.org/artifact/io.github.mum-im/mapbox-vector-tile-java)
+[![javadoc](https://javadoc.io/badge2/io.github.mum-im/mapbox-vector-tile-java/javadoc.svg)](https://javadoc.io/doc/io.github.mum-im/mapbox-vector-tile-java/latest/index.html)
+[![License](https://img.shields.io/github/license/mum-im/mapbox-vector-tile-java.svg)](https://github.com/mum-im/mapbox-vector-tile-java/blob/master/LICENSE)
 
-[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=sebasbaumh_mapbox-vector-tile-java&metric=ncloc)](https://sonarcloud.io/dashboard?id=sebasbaumh_mapbox-vector-tile-java)
-[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=sebasbaumh_mapbox-vector-tile-java&metric=security_rating)](https://sonarcloud.io/dashboard?id=sebasbaumh_mapbox-vector-tile-java)
-[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=sebasbaumh_mapbox-vector-tile-java&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=sebasbaumh_mapbox-vector-tile-java)
-[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=sebasbaumh_mapbox-vector-tile-java&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=sebasbaumh_mapbox-vector-tile-java)
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=mum-im_mapbox-vector-tile-java&metric=ncloc)](https://sonarcloud.io/dashboard?id=mum-im_mapbox-vector-tile-java)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=mum-im_mapbox-vector-tile-java&metric=security_rating)](https://sonarcloud.io/dashboard?id=mum-im_mapbox-vector-tile-java)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=mum-im_mapbox-vector-tile-java&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=mum-im_mapbox-vector-tile-java)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=mum-im_mapbox-vector-tile-java&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=mum-im_mapbox-vector-tile-java)
 
 This project allows encoding and decoding of MapBox Vector Tiles (MVT).  
 *It is originally based on [mapbox-vector-tile-java](https://github.com/wdtinc/mapbox-vector-tile-java), which is unfortunately [discontinued](https://github.com/wdtinc/mapbox-vector-tile-java/issues/45#issuecomment-1126996294) and I want to thank its authors for their work.*
@@ -20,10 +20,10 @@ This project allows encoding and decoding of MapBox Vector Tiles (MVT).
 * Pull requests from the original source were integrated ([52](https://github.com/wdtinc/mapbox-vector-tile-java/pull/52) and [53](https://github.com/wdtinc/mapbox-vector-tile-java/pull/53))
 * Clean up of the code and optimizations (use null annotations and streamline flow)
 * Support for current JDKs
-  * JDK 21 ([main branch](https://github.com/sebasbaumh/mapbox-vector-tile-java/tree/main))
+  * JDK 21 ([main branch](https://github.com/mum-im/mapbox-vector-tile-java/tree/main))
   * deprecated branches
-    * [JDK 17](https://github.com/sebasbaumh/mapbox-vector-tile-java/tree/jdk17)
-    * [JDK 11](https://github.com/sebasbaumh/mapbox-vector-tile-java/tree/jdk11)
+    * [JDK 17](https://github.com/mum-im/mapbox-vector-tile-java/tree/jdk17)
+    * [JDK 11](https://github.com/mum-im/mapbox-vector-tile-java/tree/jdk11)
 * The license is still [Apache-2.0](http://www.apache.org/licenses/LICENSE-2.0.html)
 
 ### See also:
@@ -40,7 +40,7 @@ There is a Maven artifact in the official Maven repository, so just add this to 
 
 ```xml
 <dependency>
-	<groupId>io.github.sebasbaumh</groupId>
+	<groupId>io.github.mum-im</groupId>
 	<artifactId>mapbox-vector-tile-java</artifactId>
 	<version>25.1.0</version>
 </dependency>
@@ -49,7 +49,7 @@ There is a Maven artifact in the official Maven repository, so just add this to 
 ### Gradle
 
 ```
-compile 'io.github.sebasbaumh:mapbox-vector-tile-java:25.1.0'
+compile 'io.github.mum-im:mapbox-vector-tile-java:25.2.0'
 ```
 
 ## Overview
@@ -58,9 +58,9 @@ The version reflects the year of the release, e.g. `25.1.0` is a version release
 
 ### Changes from to the original [mapbox-vector-tile-java](https://github.com/wdtinc/mapbox-vector-tile-java)
 
-The API differs a bit from [mapbox-vector-tile-java](https://github.com/wdtinc/mapbox-vector-tile-java) with the main point being a different namespace (`io.github.sebasbaumh.mapbox.vectortile`) as publishing a project to Maven Central requires to own that namespace.
+The API differs a bit from [mapbox-vector-tile-java](https://github.com/wdtinc/mapbox-vector-tile-java) with the main point being a different namespace (`io.github.mum-im.mapbox.vectortile`) as publishing a project to Maven Central requires to own that namespace.
 
-Especially [`JtsAdapter`](https://github.com/sebasbaumh/mapbox-vector-tile-java/blob/main/src/main/java/io/github/sebasbaumh/mapbox/vectortile/adapt/jts/JtsAdapter.java) has been reworked and optimized. Usually you will have to move from `addAllFeatures`/`toFeatures` to `addFeatures` instead.
+Especially [`JtsAdapter`](https://github.com/mum-im/mapbox-vector-tile-java/blob/main/src/main/java/io/github/mum-im/mapbox/vectortile/adapt/jts/JtsAdapter.java) has been reworked and optimized. Usually you will have to move from `addAllFeatures`/`toFeatures` to `addFeatures` instead.
 
 There are also some changes in the class structure, so make sure check your existing code for errors or deprecation warnings. For converters and filters it is now possible to use `null` values to use none/ignore them.
 
@@ -244,7 +244,7 @@ final VectorTile.Tile mvt = encodeMvt(DEFAULT_MVT_PARAMS, bufferedTileGeom);
 
 ## Examples
 
-See [tests](https://github.com/sebasbaumh/mapbox-vector-tile-java/tree/main/src/test/java/io/github/sebasbaumh/mapbox/vectortile).
+See [tests](https://github.com/mum-im/mapbox-vector-tile-java/tree/main/src/test/java/io/github/mum-im/mapbox/vectortile).
 
 ## How to generate VectorTile class using vector_tile.proto
 
@@ -259,7 +259,7 @@ Command `protoc` version should be the same version as the POM.xml dependency.
 These options were added to the .proto file:
 
  * syntax = "proto2";
- * option java_package = "io.github.sebasbaumh.mapbox.vectortile";
+ * option java_package = "io.github.mum-im.mapbox.vectortile";
  * option java_outer_classname = "VectorTile";
 
 ## Known Issues
