@@ -2,7 +2,6 @@ package de.mum.mapbox.vectortile.adapt.jts;
 
 import org.eclipse.jdt.annotation.DefaultLocation;
 import org.eclipse.jdt.annotation.NonNullByDefault;
-
 import de.mum.mapbox.vectortile.VectorTile;
 import de.mum.mapbox.vectortile.build.MvtLayerProps;
 
@@ -10,8 +9,7 @@ import de.mum.mapbox.vectortile.build.MvtLayerProps;
  * Processes a user data object, converts to MVT feature tags.
  */
 @NonNullByDefault({ DefaultLocation.PARAMETER, DefaultLocation.RETURN_TYPE })
-public interface IUserDataConverter
-{
+public interface IUserDataConverter {
 
 	/**
 	 * <p>
@@ -26,4 +24,5 @@ public interface IUserDataConverter
 	 * @param featureBuilder may be modified to contain additional tags
 	 */
 	void addTags(Object userData, MvtLayerProps layerProps, VectorTile.Tile.Feature.Builder featureBuilder);
+	
 }

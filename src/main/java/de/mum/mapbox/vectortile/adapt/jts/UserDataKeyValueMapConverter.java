@@ -1,12 +1,9 @@
 package de.mum.mapbox.vectortile.adapt.jts;
 
 import java.util.Map;
-
 import javax.annotation.Nullable;
-
 import org.eclipse.jdt.annotation.DefaultLocation;
 import org.eclipse.jdt.annotation.NonNullByDefault;
-
 import de.mum.mapbox.vectortile.VectorTile;
 import de.mum.mapbox.vectortile.build.MvtLayerProps;
 
@@ -28,17 +25,16 @@ public class UserDataKeyValueMapConverter implements IUserDataConverter
 	/**
 	 * Does not set feature id.
 	 */
-	public UserDataKeyValueMapConverter()
-	{
+	public UserDataKeyValueMapConverter() {
 		this.idKey = null;
 	}
 
 	/**
 	 * Tries to set feature id using provided user data {@link Map} key.
+	 * 
 	 * @param idKey user data {@link Map} key for getting id value.
 	 */
-	public UserDataKeyValueMapConverter(String idKey)
-	{
+	public UserDataKeyValueMapConverter(String idKey) {
 		this.idKey = idKey;
 	}
 
@@ -92,15 +88,13 @@ public class UserDataKeyValueMapConverter implements IUserDataConverter
 				}
 			}
 		}
-		catch (ClassCastException ex)
-		{
+		catch (ClassCastException ex) {
 			throw new IllegalArgumentException("unsupported user data: " + userData, ex);
 		}
 	}
 
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		return this.getClass().getSimpleName() + " [idKey=" + idKey + "]";
 	}
 

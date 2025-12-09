@@ -42,7 +42,7 @@ There is a Maven artifact in the official Maven repository, so just add this to 
 <dependency>
 	<groupId>io.github.mum-im</groupId>
 	<artifactId>mapbox-vector-tile-java</artifactId>
-	<version>25.1.0</version>
+	<version>25.2.0</version>
 </dependency>
 ```
 

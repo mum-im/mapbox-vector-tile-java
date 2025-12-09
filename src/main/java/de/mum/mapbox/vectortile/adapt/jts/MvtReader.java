@@ -6,9 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.annotation.Nullable;
-
 import org.eclipse.jdt.annotation.DefaultLocation;
 import org.eclipse.jdt.annotation.NonNullByDefault;
 import org.locationtech.jts.algorithm.Area;
@@ -24,7 +22,6 @@ import org.locationtech.jts.geom.MultiPolygon;
 import org.locationtech.jts.geom.Point;
 import org.locationtech.jts.geom.Polygon;
 import org.slf4j.LoggerFactory;
-
 import de.mum.mapbox.vectortile.VectorTile;
 import de.mum.mapbox.vectortile.adapt.jts.model.JtsLayer;
 import de.mum.mapbox.vectortile.adapt.jts.model.JtsMvt;
@@ -41,16 +38,26 @@ import de.mum.mapbox.vectortile.util.Vec2d;
 @NonNullByDefault({ DefaultLocation.PARAMETER, DefaultLocation.RETURN_TYPE })
 public final class MvtReader
 {
+	/**
+	 * Minimal line string length.
+	 */
 	private static final int MIN_LINE_STRING_LEN = 6; // MoveTo,1 + LineTo,1
+	
+	/**
+	 * Minimal polygon length.
+	 */
 	private static final int MIN_POLYGON_LEN = 9; // MoveTo,1 + LineTo,2 + ClosePath
+	
 	/**
 	 * Area for surveyor formula may be positive or negative for exterior rings. Mimics Mapbox parsers supporting V1.
 	 */
 	public static final RingClassifier RING_CLASSIFIER_V1 = new PolyRingClassifierV1();
+	
 	/**
 	 * Area from surveyor formula must be positive for exterior rings. Obeys V2.1 spec.
 	 */
 	public static final RingClassifier RING_CLASSIFIER_V2_1 = new PolyRingClassifierV2_1();
+	
 	/**
 	 * Default ring classifier when it is not specified.
 	 */
@@ -58,8 +65,7 @@ public final class MvtReader
 
 	// prevent instantiating this class
 	@Deprecated
-	private MvtReader()
-	{
+	private MvtReader() {
 	}
 
 	/**
@@ -634,4 +640,5 @@ public final class MvtReader
 		 */
 		List<Polygon> classifyRings(List<LinearRing> rings, GeometryFactory geomFactory);
 	}
+	
 }

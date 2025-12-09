@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
-
 import javax.annotation.Nullable;
-
 import org.eclipse.jdt.annotation.DefaultLocation;
 import org.eclipse.jdt.annotation.NonNullByDefault;
 import org.locationtech.jts.algorithm.Area;
@@ -25,7 +23,6 @@ import org.locationtech.jts.geom.Polygon;
 import org.locationtech.jts.geom.TopologyException;
 import org.locationtech.jts.geom.util.AffineTransformation;
 import org.locationtech.jts.simplify.TopologyPreservingSimplifier;
-
 import de.mum.mapbox.vectortile.VectorTile;
 import de.mum.mapbox.vectortile.VectorTile.Tile.GeomType;
 import de.mum.mapbox.vectortile.build.MvtLayerParams;
@@ -42,8 +39,7 @@ public final class JtsAdapter
 {
 	// prevent instantiating this class
 	@Deprecated
-	private JtsAdapter()
-	{
+	private JtsAdapter() {
 	}
 
 	/**
@@ -121,10 +117,10 @@ public final class JtsAdapter
 	{
 		// short cut for simple geometries
 		if (geom instanceof Point || geom instanceof MultiPoint || geom instanceof LineString
-				|| geom instanceof MultiLineString || geom instanceof Polygon || geom instanceof MultiPolygon)
-		{
+				|| geom instanceof MultiLineString || geom instanceof Polygon || geom instanceof MultiPolygon) {
 			return Collections.singleton(geom);
 		}
+		
 		// collect geometries from geometry collection
 		ArrayList<Geometry> singleGeoms = new ArrayList<Geometry>();
 		collectFlatGeometries(geom, singleGeoms);
@@ -170,8 +166,7 @@ public final class JtsAdapter
 		int repeatCoords = 0;
 		final Coordinate firstCoord = coords[0];
 		Coordinate nextCoord;
-		for (int i = coords.length - 1; i > 0; --i)
-		{
+		for (int i = coords.length - 1; i > 0; --i) {
 			nextCoord = coords[i];
 			if (equalAsInts2d(firstCoord, nextCoord))
 			{
@@ -182,6 +177,7 @@ public final class JtsAdapter
 				break;
 			}
 		}
+		
 		return repeatCoords;
 	}
 
@@ -630,25 +626,24 @@ public final class JtsAdapter
 
 	/**
 	 * Get the MVT type mapping for the provided JTS Geometry.
+	 * 
 	 * @param geometry JTS Geometry to get MVT type for
 	 * @return MVT type for the given JTS Geometry, may return
 	 *         {@link de.mum.mapbox.vectortile.VectorTile.Tile.GeomType#UNKNOWN}
 	 */
 	public static VectorTile.Tile.GeomType toGeomType(Geometry geometry)
 	{
-		if (geometry instanceof Point || geometry instanceof MultiPoint)
-		{
+		if (geometry instanceof Point || geometry instanceof MultiPoint) {
 			return VectorTile.Tile.GeomType.POINT;
 		}
-		else if (geometry instanceof LineString || geometry instanceof MultiLineString)
-		{
+		else if (geometry instanceof LineString || geometry instanceof MultiLineString)	{
 			return VectorTile.Tile.GeomType.LINESTRING;
-
 		}
-		else if (geometry instanceof Polygon || geometry instanceof MultiPolygon)
-		{
+		else if (geometry instanceof Polygon || geometry instanceof MultiPolygon) {
 			return VectorTile.Tile.GeomType.POLYGON;
 		}
+		
 		return VectorTile.Tile.GeomType.UNKNOWN;
 	}
+	
 }

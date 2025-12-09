@@ -25,37 +25,36 @@ public final class GeomMinSizeFilter implements IGeometryFilter
 	private final double minLength;
 
 	/**
-	 * GeomMinSizeFilter.
+	 * Constructor.
+	 * 
 	 * @param minArea minimum area required for a {@link Polygon} or {@link MultiPolygon}
 	 * @param minLength minimum length required for a {@link LineString} or {@link MultiLineString}
 	 */
-	public GeomMinSizeFilter(double minArea, double minLength)
-	{
-		if (minArea < 0.0d)
-		{
+	public GeomMinSizeFilter(double minArea, double minLength) {
+		
+		if (minArea < 0.0d)	{
 			throw new IllegalArgumentException("minArea must be >= 0");
 		}
-		if (minLength < 0.0d)
-		{
+		
+		if (minLength < 0.0d) {
 			throw new IllegalArgumentException("minLength must be >= 0");
 		}
+		
 		this.minArea = minArea;
 		this.minLength = minLength;
 	}
 
 	@Override
-	public boolean accept(Geometry geometry)
-	{
-		if ((geometry instanceof Polygon || geometry instanceof MultiPolygon) && (geometry.getArea() < minArea))
-		{
-			return false;
-
-		}
-		else if ((geometry instanceof LineString || geometry instanceof MultiLineString)
-				&& (geometry.getLength() < minLength))
-		{
+	public boolean accept(Geometry geometry) {
+		
+		if ((geometry instanceof Polygon || geometry instanceof MultiPolygon) && (geometry.getArea() < minArea)) {
 			return false;
 		}
+		else if ((geometry instanceof LineString || geometry instanceof MultiLineString) && (geometry.getLength() < minLength))	{
+			return false;
+		}
+		
 		return true;
 	}
+	
 }

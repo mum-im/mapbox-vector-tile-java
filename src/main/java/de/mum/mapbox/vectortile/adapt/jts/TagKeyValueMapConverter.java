@@ -4,12 +4,9 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-
 import javax.annotation.Nullable;
-
 import org.eclipse.jdt.annotation.DefaultLocation;
 import org.eclipse.jdt.annotation.NonNullByDefault;
-
 import de.mum.mapbox.vectortile.VectorTile;
 import de.mum.mapbox.vectortile.util.MvtUtil;
 
@@ -40,17 +37,16 @@ public class TagKeyValueMapConverter implements ITagConverter
 	/**
 	 * Always created user data object, even with empty tags. Ignore feature ids.
 	 */
-	public TagKeyValueMapConverter()
-	{
+	public TagKeyValueMapConverter() {
 		this(false);
 	}
 
 	/**
 	 * Ignore feature ids.
+	 * 
 	 * @param nullIfEmpty if true, return null user data when tags are empty
 	 */
-	public TagKeyValueMapConverter(boolean nullIfEmpty)
-	{
+	public TagKeyValueMapConverter(boolean nullIfEmpty)	{
 		this.nullIfEmpty = nullIfEmpty;
 		this.addId = false;
 		this.idKey = null;
@@ -76,8 +72,7 @@ public class TagKeyValueMapConverter implements ITagConverter
 			List<VectorTile.Tile.Value> valuesList)
 	{
 		// Guard: empty
-		if (nullIfEmpty && tags.isEmpty() && (!addId || id == null))
-		{
+		if (nullIfEmpty && tags.isEmpty() && (!addId || id == null)) {
 			return null;
 		}
 
@@ -87,24 +82,23 @@ public class TagKeyValueMapConverter implements ITagConverter
 		int valIndex;
 		boolean valid;
 
-		for (int i = 0; i < tags.size() - 1; i += 2)
-		{
+		for (int i = 0; i < tags.size() - 1; i += 2) {
 			keyIndex = tags.get(i);
 			valIndex = tags.get(i + 1);
 
 			valid = keyIndex >= 0 && keyIndex < keysList.size() && valIndex >= 0 && valIndex < valuesList.size();
 
-			if (valid)
-			{
+			if (valid) {
 				userData.put(keysList.get(keyIndex), MvtUtil.toObject(valuesList.get(valIndex)));
 			}
 		}
 
 		// Add ID, value may be null
-		if (addId)
-		{
+		if (addId) {
 			userData.put(idKey, id);
 		}
+		
 		return userData;
 	}
+	
 }

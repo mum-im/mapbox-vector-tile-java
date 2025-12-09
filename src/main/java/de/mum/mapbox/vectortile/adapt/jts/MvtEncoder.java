@@ -2,13 +2,10 @@ package de.mum.mapbox.vectortile.adapt.jts;
 
 import java.io.IOException;
 import java.io.OutputStream;
-
 import javax.annotation.Nullable;
-
 import org.eclipse.jdt.annotation.DefaultLocation;
 import org.eclipse.jdt.annotation.NonNullByDefault;
 import org.locationtech.jts.geom.Geometry;
-
 import de.mum.mapbox.vectortile.VectorTile;
 import de.mum.mapbox.vectortile.adapt.jts.model.JtsLayer;
 import de.mum.mapbox.vectortile.adapt.jts.model.JtsMvt;
@@ -24,8 +21,7 @@ public final class MvtEncoder
 {
 	// prevent instantiating this class
 	@Deprecated
-	private MvtEncoder()
-	{
+	private MvtEncoder() {
 	}
 
 	/**

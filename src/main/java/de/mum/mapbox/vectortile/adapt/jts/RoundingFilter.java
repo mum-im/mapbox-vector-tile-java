@@ -24,26 +24,23 @@ public final class RoundingFilter implements CoordinateSequenceFilter
 	/**
 	 * Constructs an instance.
 	 */
-	private RoundingFilter()
-	{
+	private RoundingFilter() {
 	}
 
 	@Override
-	public void filter(@SuppressWarnings("null") CoordinateSequence seq, int i)
-	{
+	public void filter(@SuppressWarnings("null") CoordinateSequence seq, int i)	{
 		seq.setOrdinate(i, 0, Math.round(seq.getOrdinate(i, 0)));
 		seq.setOrdinate(i, 1, Math.round(seq.getOrdinate(i, 1)));
 	}
 
 	@Override
-	public boolean isDone()
-	{
+	public boolean isDone()	{
 		return false;
 	}
 
 	@Override
-	public boolean isGeometryChanged()
-	{
+	public boolean isGeometryChanged() {
 		return true;
 	}
+	
 }
