@@ -53,7 +53,7 @@ The version reflects the year of the release, e.g. `25.1.0` is a version release
 
 The API differs a bit from [mapbox-vector-tile-java](https://github.com/wdtinc/mapbox-vector-tile-java) with the main point being a different namespace (`de.mum.mapbox.vectortile`) as publishing a project to Maven Central requires to own that namespace.
 
-Especially [`JtsAdapter`](https://github.com/mum-im/mapbox-vector-tile-java/blob/main/src/main/java/io/github/mum-im/mapbox/vectortile/adapt/jts/JtsAdapter.java) has been reworked and optimized. Usually you will have to move from `addAllFeatures`/`toFeatures` to `addFeatures` instead.
+Especially [`JtsAdapter`](https://github.com/mum-im/mapbox-vector-tile-java/blob/main/src/main/java/de/mum/mapbox/vectortile/adapt/jts/JtsAdapter.java) has been reworked and optimized. Usually you will have to move from `addAllFeatures`/`toFeatures` to `addFeatures` instead.
 
 There are also some changes in the class structure, so make sure check your existing code for errors or deprecation warnings. For converters and filters it is now possible to use `null` values to use none/ignore them.
 
