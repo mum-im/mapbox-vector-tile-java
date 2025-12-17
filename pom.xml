@@ -145,8 +145,8 @@
 							<goal>jar</goal>
 						</goals>
 						<configuration>
-							<!-- Java 21 -->
-							<source>21</source>
+							<!-- Java 17 -->
+							<source>17</source>
 							<!-- ignore javadoc errors -->
 							<doclint>none</doclint>
 							<failOnError>false</failOnError>
@@ -247,6 +247,12 @@
 								</goals>
 							</execution>
 						</executions>
+		    <configuration>
+                        <gpgArguments>
+                            <arg>--pinentry-mode</arg>
+                            <arg>loopback</arg>
+                        </gpgArguments>
+                    </configuration>
 					</plugin>
 				</plugins>
 			</build>
