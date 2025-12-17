@@ -31,7 +31,7 @@
 		<connection>scm:git:git://github.com/mum-im/mapbox-vector-tile-java.git</connection>
 		<developerConnection>scm:git:ssh://github.com:mum-im/mapbox-vector-tile-java.git</developerConnection>
 		<url>https://github.com/mum-im/mapbox-vector-tile-java/tree/main</url>
-		<tag>v25.2.0</tag>
+		<tag>25.2.0</tag>
 	</scm>
 	<!-- Sonatype repository -->
 	<distributionManagement>
