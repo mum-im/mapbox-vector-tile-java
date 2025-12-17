@@ -237,7 +237,7 @@ final VectorTile.Tile mvt = encodeMvt(DEFAULT_MVT_PARAMS, bufferedTileGeom);
 
 ## Examples
 
-See [tests](https://github.com/mum-im/mapbox-vector-tile-java/tree/main/src/test/java/io/github/mum-im/mapbox/vectortile).
+See [tests](https://github.com/mum-im/mapbox-vector-tile-java/tree/main/src/test/java/de/mum/mapbox/vectortile).
 
 ## How to generate VectorTile class using vector_tile.proto
 
@@ -252,7 +252,7 @@ Command `protoc` version should be the same version as the POM.xml dependency.
 These options were added to the .proto file:
 
  * syntax = "proto2";
- * option java_package = "io.github.mum-im.mapbox.vectortile";
+ * option java_package = "de.mum.mapbox.vectortile";
  * option java_outer_classname = "VectorTile";
 
 ## Known Issues
