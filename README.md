@@ -1,14 +1,8 @@
 # MapBox Vector Tile - Java
 
-[![CodeQL](https://github.com/mum-im/mapbox-vector-tile-java/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/mum-im/mapbox-vector-tile-java/actions/workflows/codeql-analysis.yml)
-[![Maven Central](https://img.shields.io/maven-central/v/io.github.mum-im/mapbox-vector-tile-java)](https://search.maven.org/artifact/io.github.mum-im/mapbox-vector-tile-java)
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.mum-im/mapbox-vector-tile-java)](https://central.sonatype.com/artifact/de.mum/mapbox-vector-tile-java)
 [![javadoc](https://javadoc.io/badge2/io.github.mum-im/mapbox-vector-tile-java/javadoc.svg)](https://javadoc.io/doc/io.github.mum-im/mapbox-vector-tile-java/latest/index.html)
 [![License](https://img.shields.io/github/license/mum-im/mapbox-vector-tile-java.svg)](https://github.com/mum-im/mapbox-vector-tile-java/blob/master/LICENSE)
-
-[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=mum-im_mapbox-vector-tile-java&metric=ncloc)](https://sonarcloud.io/dashboard?id=mum-im_mapbox-vector-tile-java)
-[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=mum-im_mapbox-vector-tile-java&metric=security_rating)](https://sonarcloud.io/dashboard?id=mum-im_mapbox-vector-tile-java)
-[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=mum-im_mapbox-vector-tile-java&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=mum-im_mapbox-vector-tile-java)
-[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=mum-im_mapbox-vector-tile-java&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=mum-im_mapbox-vector-tile-java)
 
 This project allows encoding and decoding of MapBox Vector Tiles (MVT).  
 *It is originally based on [mapbox-vector-tile-java](https://github.com/wdtinc/mapbox-vector-tile-java), which is unfortunately [discontinued](https://github.com/wdtinc/mapbox-vector-tile-java/issues/45#issuecomment-1126996294) and I want to thank its authors for their work.*
@@ -20,9 +14,8 @@ This project allows encoding and decoding of MapBox Vector Tiles (MVT).
 * Pull requests from the original source were integrated ([52](https://github.com/wdtinc/mapbox-vector-tile-java/pull/52) and [53](https://github.com/wdtinc/mapbox-vector-tile-java/pull/53))
 * Clean up of the code and optimizations (use null annotations and streamline flow)
 * Support for current JDKs
-  * JDK 21 ([main branch](https://github.com/mum-im/mapbox-vector-tile-java/tree/main))
+  * JDK 17 ([main branch](https://github.com/mum-im/mapbox-vector-tile-java/tree/main))
   * deprecated branches
-    * [JDK 17](https://github.com/mum-im/mapbox-vector-tile-java/tree/jdk17)
     * [JDK 11](https://github.com/mum-im/mapbox-vector-tile-java/tree/jdk11)
 * The license is still [Apache-2.0](http://www.apache.org/licenses/LICENSE-2.0.html)
 
@@ -40,16 +33,16 @@ There is a Maven artifact in the official Maven repository, so just add this to 
 
 ```xml
 <dependency>
-	<groupId>io.github.mum-im</groupId>
-	<artifactId>mapbox-vector-tile-java</artifactId>
-	<version>25.2.0</version>
+    <groupId>de.mum</groupId>
+    <artifactId>mapbox-vector-tile-java</artifactId>
+    <version>25.2.0</version>
 </dependency>
 ```
 
 ### Gradle
 
 ```
-compile 'io.github.mum-im:mapbox-vector-tile-java:25.2.0'
+compile 'de.mum:mapbox-vector-tile-java:25.2.0'
 ```
 
 ## Overview
