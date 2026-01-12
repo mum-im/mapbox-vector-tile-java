@@ -5,7 +5,7 @@
 	<groupId>de.mum</groupId>
 	<artifactId>mapbox-vector-tile-java</artifactId>
 	<!-- version for release -->
-	<version>25.2.0</version>
+	<version>26.1.0</version>
 	<packaging>jar</packaging>
 
 	<name>Mapbox Vector Tiles - Java</name>
@@ -31,7 +31,7 @@
 		<connection>scm:git:git://github.com/mum-im/mapbox-vector-tile-java.git</connection>
 		<developerConnection>scm:git:ssh://github.com:mum-im/mapbox-vector-tile-java.git</developerConnection>
 		<url>https://github.com/mum-im/mapbox-vector-tile-java/tree/main</url>
-		<tag>25.2.0</tag>
+		<tag>26.1.0</tag>
 	</scm>
 	<!-- Sonatype repository -->
 	<distributionManagement>

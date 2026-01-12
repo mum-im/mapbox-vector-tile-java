@@ -35,14 +35,14 @@ There is a Maven artifact in the official Maven repository, so just add this to 
 <dependency>
     <groupId>de.mum</groupId>
     <artifactId>mapbox-vector-tile-java</artifactId>
-    <version>25.2.0</version>
+    <version>26.1.0</version>
 </dependency>
 ```
 
 ### Gradle
 
 ```
-compile 'de.mum:mapbox-vector-tile-java:25.2.0'
+compile 'de.mum:mapbox-vector-tile-java:26.1.0'
 ```
 
 ## Overview
